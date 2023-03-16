@@ -1,0 +1,184 @@
+[
+  {
+    "level_": 0,
+    "message_": "Start JSON generation. Platform version: 21 min SDK version: arm64-v8a",
+    "file_": "C:\\e_plants-master\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1616121316
+  },
+  {
+    "level_": 0,
+    "message_": "rebuilding JSON C:\\e_plants-master\\OpenCV\\.cxx\\Debug\\k2l6sa5u\\arm64-v8a\\android_gradle_build.json due to:",
+    "file_": "C:\\e_plants-master\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -874729566
+  },
+  {
+    "level_": 0,
+    "message_": "- expected json C:\\e_plants-master\\OpenCV\\.cxx\\Debug\\k2l6sa5u\\arm64-v8a\\android_gradle_build.json file is not present, will remove stale json folder",
+    "file_": "C:\\e_plants-master\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1447217378
+  },
+  {
+    "level_": 0,
+    "message_": "- missing previous command file C:\\e_plants-master\\OpenCV\\.cxx\\Debug\\k2l6sa5u\\arm64-v8a\\metadata_generation_command.txt, will remove stale json folder",
+    "file_": "C:\\e_plants-master\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 698263872
+  },
+  {
+    "level_": 0,
+    "message_": "- command changed from previous, will remove stale json folder",
+    "file_": "C:\\e_plants-master\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -2139142070
+  },
+  {
+    "level_": 0,
+    "message_": "removing stale contents from \u0027C:\\e_plants-master\\OpenCV\\.cxx\\Debug\\k2l6sa5u\\arm64-v8a\u0027",
+    "file_": "C:\\e_plants-master\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1630496746
+  },
+  {
+    "level_": 0,
+    "message_": "created folder \u0027C:\\e_plants-master\\OpenCV\\.cxx\\Debug\\k2l6sa5u\\arm64-v8a\u0027",
+    "file_": "C:\\e_plants-master\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1329818358
+  },
+  {
+    "level_": 0,
+    "message_": "executing cmake Executable : C:\\Users\\Emily\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1\\bin\\cmake.exe\narguments : \n-HC:\\e_plants-master\\OpenCV\\libcxx_helper\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_SYSTEM_VERSION\u003d21\n-DANDROID_PLATFORM\u003dandroid-21\n-DANDROID_ABI\u003darm64-v8a\n-DCMAKE_ANDROID_ARCH_ABI\u003darm64-v8a\n-DANDROID_NDK\u003dC:\\Users\\Emily\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\n-DCMAKE_ANDROID_NDK\u003dC:\\Users\\Emily\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\n-DCMAKE_TOOLCHAIN_FILE\u003dC:\\Users\\Emily\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003dC:\\Users\\Emily\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1\\bin\\ninja.exe\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:\\e_plants-master\\OpenCV\\build\\intermediates\\cxx\\Debug\\k2l6sa5u\\obj\\arm64-v8a\n-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:\\e_plants-master\\OpenCV\\build\\intermediates\\cxx\\Debug\\k2l6sa5u\\obj\\arm64-v8a\n-DCMAKE_BUILD_TYPE\u003dDebug\n-BC:\\e_plants-master\\OpenCV\\.cxx\\Debug\\k2l6sa5u\\arm64-v8a\n-GNinja\n-DANDROID_STL\u003dc++_shared\njvmArgs : \n\n",
+    "file_": "C:\\e_plants-master\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 251880095
+  },
+  {
+    "level_": 0,
+    "message_": "Executable : C:\\Users\\Emily\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1\\bin\\cmake.exe\narguments : \n-HC:\\e_plants-master\\OpenCV\\libcxx_helper\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_SYSTEM_VERSION\u003d21\n-DANDROID_PLATFORM\u003dandroid-21\n-DANDROID_ABI\u003darm64-v8a\n-DCMAKE_ANDROID_ARCH_ABI\u003darm64-v8a\n-DANDROID_NDK\u003dC:\\Users\\Emily\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\n-DCMAKE_ANDROID_NDK\u003dC:\\Users\\Emily\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\n-DCMAKE_TOOLCHAIN_FILE\u003dC:\\Users\\Emily\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003dC:\\Users\\Emily\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1\\bin\\ninja.exe\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:\\e_plants-master\\OpenCV\\build\\intermediates\\cxx\\Debug\\k2l6sa5u\\obj\\arm64-v8a\n-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:\\e_plants-master\\OpenCV\\build\\intermediates\\cxx\\Debug\\k2l6sa5u\\obj\\arm64-v8a\n-DCMAKE_BUILD_TYPE\u003dDebug\n-BC:\\e_plants-master\\OpenCV\\.cxx\\Debug\\k2l6sa5u\\arm64-v8a\n-GNinja\n-DANDROID_STL\u003dc++_shared\njvmArgs : \n\n",
+    "file_": "C:\\e_plants-master\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1492818014
+  },
+  {
+    "level_": 0,
+    "message_": "Exiting generation of C:\\e_plants-master\\OpenCV\\.cxx\\Debug\\k2l6sa5u\\arm64-v8a\\compile_commands.json.bin normally",
+    "file_": "C:\\e_plants-master\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -509072820
+  },
+  {
+    "level_": 0,
+    "message_": "done executing cmake",
+    "file_": "C:\\e_plants-master\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1843478975
+  },
+  {
+    "level_": 0,
+    "message_": "write command file C:\\e_plants-master\\OpenCV\\.cxx\\Debug\\k2l6sa5u\\arm64-v8a\\metadata_generation_command.txt",
+    "file_": "C:\\e_plants-master\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1706987990
+  },
+  {
+    "level_": 0,
+    "message_": "JSON generation completed without problems",
+    "file_": "C:\\e_plants-master\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -513415237
+  }
+]

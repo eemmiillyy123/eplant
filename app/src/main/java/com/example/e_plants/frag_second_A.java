@@ -3,13 +3,14 @@ package com.example.e_plants;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.SurfaceView;
+import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,12 +37,17 @@ import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
-public class frag_second_A extends CameraActivity {
-        //implements CvCameraViewListener2 {
+public class frag_second_A extends CameraActivity implements CvCameraViewListener2 {
     TextView textTemper;
     TextView textHumid;
     DatabaseReference databaseReference;
@@ -61,6 +67,8 @@ public class frag_second_A extends CameraActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+
         Log.i(TAG, "called onCreate");
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -68,14 +76,12 @@ public class frag_second_A extends CameraActivity {
         setContentView(R.layout.fragment_second);
         textTemper = findViewById(R.id.textTemper);
         textHumid = findViewById(R.id.textHumid);
-        textTemper.setText("Temperature");
-        textHumid.setText("Humidity");
-        mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.surface_view);
         readData();
+        mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.surface_view);
 
-        //mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
+        mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
 
-        //mOpenCvCameraView.setCvCameraViewListener(this);
+        mOpenCvCameraView.setCvCameraViewListener(this);
 
        /* buttonRecord = findViewById(R.id.record);
         buttonRecord.setOnClickListener(new View.OnClickListener() {
@@ -131,6 +137,7 @@ public class frag_second_A extends CameraActivity {
         });*/
 
         //buttonStop = findViewById(R.id.stoprecord);
+
     }
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
@@ -150,17 +157,12 @@ public class frag_second_A extends CameraActivity {
         }
     };
 
-   /* @Override
+   /*@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICTURE_CODE && data != null) {
-
-            bitmap = (Bitmap) data.getExtras().get("data");
-            mPicture = new Mat();
-            Imgproc.cvtColor(mPicture, mPicture, Imgproc.COLOR_RGB2GRAY);
-            Utils.bitmapToMat(bitmap, mPicture);
-
-
+            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+            Toast.makeText(this,"picture is saved",Toast.LENGTH_SHORT).show();
         }
     }*/
 
@@ -219,6 +221,7 @@ public class frag_second_A extends CameraActivity {
         curr_gray = inputFrame.gray();
 
         Core.absdiff(curr_gray, prev_gray, diff);
+        //compareHist(curr_gray,prev_gray);
         prev_gray = curr_gray.clone();
         Imgproc.threshold(diff, diff, 25, 255, Imgproc.THRESH_BINARY);
         Imgproc.findContours(diff, cnts, new Mat(), Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);
@@ -227,80 +230,126 @@ public class frag_second_A extends CameraActivity {
 
         for (MatOfPoint m : cnts) {
             double Object_area = Imgproc.contourArea(m);
-            if (Object_area > 500 || Object_area<450) {
+            if (Object_area < 300 || Object_area > 450) {
                 continue;
             }
             have_bug = true;
             Rect r = Imgproc.boundingRect(m);
-            Log.i("REC_AREA", Object_area + "");
+            Log.i("ob_AREA", Object_area + "");
             Imgproc.rectangle(mRgba, r, new Scalar(0, 0, 255), 3);
+            try {
+                takescreeenshot(getWindow().getDecorView().getRootView(), "Result");
+                //Imgproc.putText(mRgba,"有蟲蟲",new Point(0,0),1,2.0,new Scalar(255,0,0));
+                //Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                //startActivityForResult(intent,PICTURE_CODE);
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+
+
         cnts.clear();
-        //mRgba = inputFrame.rgba();
-        //Imgproc.Canny(inputFrame.gray(), mIntermediateMat, 80, 100);
-       // Imgproc.cvtColor(mIntermediateMat, mRgba, Imgproc.COLOR_GRAY2RGBA, 4);
+        /*mRgba = inputFrame.rgba();
+        Imgproc.Canny(inputFrame.gray(), mIntermediateMat, 80, 100);
+        Imgproc.cvtColor(mIntermediateMat, mRgba, Imgproc.COLOR_GRAY2RGBA, 4);*/
         //measureContours(inputFrame.rgba(), mRgba);
         return mRgba;
     }
 
-        /*private void measureContours(Mat src, Mat dst) {
-
-            Mat gray = new Mat();
-
-            Mat binary = new Mat();
-
-    // 二值
-            Imgproc.cvtColor(src, gray, Imgproc.COLOR_BGR2GRAY);
-
-            Imgproc.threshold(gray, binary, 0, 255, Imgproc.THRESH_BINARY | Imgproc.THRESH_OTSU);
-
-    // 輪廓發現
-
-            List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
-
-            Mat hierarchy = new Mat();
-
-            Imgproc.findContours(binary, contours, hierarchy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE, new Point(0, 0));
-
-    // 測量輪廓
-
-            dst.create(src.size(), src.type());
-
-            for (int i = 0; i < contours.size(); i++) {
-
-                Rect rect = Imgproc.boundingRect(contours.get(i));
-
-                double w = rect.width;
-
-                double h = rect.height;
-
-                double rate = Math.min(w, h) / Math.max(w, h);
-
-                Log.i("Bound Rect", "rate：" + rate);
-
-                RotatedRect minRect = Imgproc.minAreaRect(new MatOfPoint2f(contours.get(i).toArray()));
-
-                w = minRect.size.width;
-
-                h = minRect.size.height;
-
-                rate = Math.min(w, h) / Math.max(w, h);
-
-                Log.i("Min Bound Rect", "rate：" + rate);
-
-                double area = Imgproc.contourArea(contours.get(i), false);
-
-                double arclen = Imgproc.arcLength(new MatOfPoint2f(contours.get(i).toArray()), true);
-
-                Log.i("contourArea", "area：" + rate);
-
-                Log.i("arcLength", "arcLength：" + arclen + "\n");
-
-                Imgproc.drawContours(dst, contours, i, new Scalar(0, 0, 255), 1);
-                Imgproc.putText(dst, area + "", new Point(0, 0), 1, 2.0, new Scalar(255, 0, 0));
-
+    protected static File takescreeenshot(View view, String filename) {
+        Date date = new Date();
+        CharSequence format = DateFormat.getDateInstance().format(date);
+        try {
+            String dirpath = Environment.getExternalStorageDirectory().toString() + "/Maybe have bug on plants";
+            File filedir = new File(dirpath);
+            if (!filedir.exists()) {
+                boolean mkdir = filedir.mkdir();
             }
-        }*/
+            String path = dirpath + "/" + filename + "-" + format + ".jpeg";
+            view.setDrawingCacheEnabled(true);
+            Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+            view.setDrawingCacheEnabled(false);
+
+            File imageFile = new File(path);
+            FileOutputStream fileOutputStream = new FileOutputStream((imageFile));
+            int quality = 100;
+            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, fileOutputStream);
+            fileOutputStream.flush();
+            fileOutputStream.close();
+            return imageFile;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+   /* private  void compareHist(Mat srcmat,Mat dstmat){
+        srcmat.convertTo(srcmat,CvType.CV_32F);
+        dstmat.convertTo(dstmat,CvType.CV_32F);
+        double target = Imgproc.compareHist(srcmat,dstmat,Imgproc.CV_COMP_CORREL);
+        Toast.makeText(this,"相似度:"+target,Toast.LENGTH_SHORT).show();
+    }*/
+
+    /*private void measureContours(Mat src, Mat dst) {
+
+        Mat gray = new Mat();
+
+        Mat binary = new Mat();
+
+// 二值
+        Imgproc.cvtColor(src, gray, Imgproc.COLOR_BGR2GRAY);
+
+        Imgproc.threshold(gray, binary, 0, 255, Imgproc.THRESH_BINARY | Imgproc.THRESH_OTSU);
+
+// 輪廓發現
+
+        List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
+
+        Mat hierarchy = new Mat();
+
+        Imgproc.findContours(binary, contours, hierarchy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE, new Point(0, 0));
+
+// 測量輪廓
+
+        dst.create(src.size(), src.type());
+
+        for (int i = 0; i < contours.size(); i++) {
+
+            Rect rect = Imgproc.boundingRect(contours.get(i));
+
+            double w = rect.width;
+
+            double h = rect.height;
+
+            double rate = Math.min(w, h) / Math.max(w, h);
+
+            Log.i("Bound Rect", "rate：" + rate);
+
+            RotatedRect minRect = Imgproc.minAreaRect(new MatOfPoint2f(contours.get(i).toArray()));
+
+            w = minRect.size.width;
+
+            h = minRect.size.height;
+
+            rate = Math.min(w, h) / Math.max(w, h);
+
+            Log.i("Min Bound Rect", "rate：" + rate);
+
+            double area = Imgproc.contourArea(contours.get(i), false);
+
+            double arclen = Imgproc.arcLength(new MatOfPoint2f(contours.get(i).toArray()), true);
+
+            Log.i("contourArea", "area：" + rate);
+
+            Log.i("arcLength", "arcLength：" + arclen + "\n");
+
+            Imgproc.drawContours(dst, contours, i, new Scalar(0, 0, 255), 1);
+            Imgproc.putText(dst, area + "", new Point(0, 0), 1, 2.0, new Scalar(255, 0, 0));
+
+        }
+    }*/
     private void readData() {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         System.out.println("READ!");

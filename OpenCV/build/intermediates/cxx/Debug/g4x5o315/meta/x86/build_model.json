@@ -125,7 +125,7 @@
         "rootBuildGradleFolder": "C:\\Users\\Emily\\Desktop\\e_plant1002",
         "sdkFolder": "C:\\Users\\Emily\\AppData\\Local\\Android\\Sdk",
         "isBuildOnlyTargetAbiEnabled": true,
-        "ideBuildTargetAbi": "x86,armeabi-v7a,armeabi",
+        "ideBuildTargetAbi": "x86",
         "isCmakeBuildCohabitationEnabled": false,
         "isPrefabEnabled": false
       },
